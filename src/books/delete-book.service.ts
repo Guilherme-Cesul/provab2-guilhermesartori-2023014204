@@ -3,10 +3,6 @@ import { BookRepository } from './books.repository';
 
 interface DeleteBookServiceRequest {
   id: string;
-  title: string;
-  author: string;
-  publicationYear: number;
-  isbn: string;
 }
 
 @Injectable()
