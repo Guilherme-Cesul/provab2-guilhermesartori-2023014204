@@ -30,13 +30,13 @@ export class FindAllBooksService {
 
     for (const book of books) {
       newBooks.push({
-          id: book.id?.toString() || '',
-          title: book.title,
-          author: book.author,
-          isbn: book.isbn,
-          publicationYear: book.publicationYear,
-          createdAt: book.createdAt,
-          updatedAt: book.updatedAt,
+        id: book.id?.toString() || '',
+        title: book.title,
+        author: book.author,
+        isbn: book.isbn,
+        publicationYear: book.publicationYear,
+        createdAt: book.createdAt,
+        updatedAt: book.updatedAt,
       });
     }
     return {

@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { BookRepository } from './books.repository';
 
-interface EditBookServiceRequest {
+interface DeleteBookServiceRequest {
   id: string;
   title: string;
   author: string;
@@ -10,28 +10,15 @@ interface EditBookServiceRequest {
 }
 
 @Injectable()
-export class EditProductService {
+export class DeleteBookService {
   constructor(private bookRepository: BookRepository) {}
 
-  async execute({
-    id,
-    title,
-    author,
-    publicationYear,
-    isbn,
-  }: EditBookServiceRequest): Promise<void> {
+  async execute({ id }: DeleteBookServiceRequest): Promise<void> {
     const book = await this.bookRepository.findById(id);
 
     if (!book) {
-      throw new NotFoundException('Book not found.');
+      throw new NotFoundException('Book not found');
     }
-
-    await this.bookRepository.save({
-      id,
-      title,
-      author,
-      publicationYear,
-      isbn,
-    });
+    await this.bookRepository.delete(book);
   }
 }
