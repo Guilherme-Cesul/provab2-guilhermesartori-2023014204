@@ -10,7 +10,7 @@ interface EditBookServiceRequest {
 }
 
 @Injectable()
-export class EditProductService {
+export class EditBookService {
   constructor(private bookRepository: BookRepository) {}
 
   async execute({
